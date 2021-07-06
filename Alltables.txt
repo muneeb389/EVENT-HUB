@@ -1,0 +1,69 @@
+CREATE DATABASE databasename;
+
+CREATE TABLE users(
+user_id int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+username TINYTEXT NOT NULL,
+email TINYTEXT NOT NULL,
+pwd LONGTEXT NOT NULL,
+type TINYTEXT NOT NULL
+);
+
+CREATE TABLE location(
+locationID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+locationName TINYTEXT NOT NULL
+);
+
+CREATE TABLE catogary(
+catogaryID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+catogaryName TINYTEXT NOT NULL
+);
+
+CREATE TABLE profession(
+professionID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+professionName TINYTEXT NOT NULL
+);
+
+CREATE TABLE events(
+eventID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+user_id	INT(11) NOT NULL,
+eventName TINYTEXT NOT NULL,
+locationID INT(11) NOT NULL,
+catogaryID INT(11) NOT NULL,
+phoneNumber TINYTEXT NOT NULL,
+picturePath LONGTEXT NOT NULL,
+eventDate DATE NOT NULL,
+eventDetails LONGTEXT NOT NULL,
+isApprove TINYTEXT NOT NULL,
+FOREIGN KEY(user_id) REFERENCES users(user_id),
+FOREIGN KEY(locationID) REFERENCES location(locationID),
+FOREIGN KEY(catogaryID) REFERENCES catogary(catogaryID)
+);
+
+CREATE TABLE employee(
+employeeID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+user_id	INT(11) NOT NULL,
+fullName TINYTEXT NOT NULL,
+locationID INT(11) NOT NULL,
+professionID INT(11) NOT NULL,
+phoneNumber TINYTEXT NOT NULL,
+aboutYou LONGTEXT NOT NULL,
+FOREIGN KEY(user_id) REFERENCES users(user_id),
+FOREIGN KEY(locationID) REFERENCES location(locationID),
+FOREIGN KEY(professionID) REFERENCES profession(professionID)
+);
+
+INSERT INTO location (locationName) VALUES ('Karachi');
+INSERT INTO location (locationName) VALUES ('Lahore');
+INSERT INTO location (locationName) VALUES ('Peshawar');
+INSERT INTO location (locationName) VALUES ('Quetta');
+
+INSERT INTO catogary (catogaryName) VALUES ('Carnival');
+INSERT INTO catogary (catogaryName) VALUES ('Concert');
+INSERT INTO catogary (catogaryName) VALUES ('Qawali');
+
+
+INSERT INTO profession (professionName) VALUES ('CameraMan');
+INSERT INTO profession (professionName) VALUES ('Caterer');
+INSERT INTO profession (professionName) VALUES ('Magician');
+
+

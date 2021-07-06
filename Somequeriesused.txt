@@ -1,0 +1,174 @@
+SELECT * FROM location WHERE locationName = '$this->location'
+
+SELECT * FROM catogary WHERE catogaryName = '$this->catogary'
+
+INSERT INTO events (user_id, eventName, locationID , catogaryID , phoneNumber , picturePath , eventDate , eventDetails , isApprove)
+VALUES ('$userID', '$this->eventname', '$locationID' , '$catogaryID' , '$this->number' , '$fileLocation' ,'$this->eventDate', '$this->eventdetails' , '$this->isApprove')
+
+SELECT * FROM users WHERE username=? OR email=? (prepared statement)
+
+SELECT * FROM profession WHERE professionName = '$this->profession'
+
+INSERT INTO employee (user_id, fullName, locationID , professionID , phoneNumber , aboutYou )
+VALUES ('$userID', '$this->fullName', '$locationID' , '$professionID' , '$this->number' ,  '$this->aboutYou')
+
+SELECT username FROM users WHERE username=? (prepared statement)
+
+INSERT INTO users (username , email , pwd , type) VALUES (? ,? , ? , ?)
+
+UPDATE events SET isApprove = 1 WHERE eventID = '$eventID';
+
+DELETE FROM events WHERE eventID = '$eventID';
+
+SELECT U.username, U.email , COUNT(E.eventID) AS NumberOfEvents, U.type
+FROM users U
+LEFT JOIN events E
+ON U.user_id = E.user_id
+WHERE U.type = 1
+GROUP BY U.user_id
+
+SELECT * FROM events e ,users u , location l , catogary c WHERE
+e.user_id = u.user_id AND
+e.locationID = l.locationID AND
+e.catogaryID = c.catogaryID";
+$result = $conn->query($sql)
+
+SELECT * FROM events WHERE eventID = '$eventID';
+
+SELECT * FROM events e ,users u ,location l ,catogary c  WHERE
+e.user_id = u.user_id AND
+e.locationID = l.locationID AND
+e.catogaryID = c.catogaryID AND
+e.isApprove = '1';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                l.locationName = '$location';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                c.catogaryName = '$catogary';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                e.eventDate < '$eventbefore';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                e.eventDate > '$eventafter';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                l.locationName = '$location' AND
+                c.catogaryName = '$catogary';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                l.locationName = '$location' AND
+                e.eventDate < '$eventbefore';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                l.locationName = '$location' AND
+                e.eventDate > '$eventafter';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                c.catogaryName = '$catogary' AND
+                e.eventDate < '$eventbefore';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                c.catogaryName = '$catogary' AND
+                e.eventDate > '$eventafter';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                e.eventDate < '$eventbefore' AND
+                e.eventDate > '$eventafter';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                c.catogaryName = '$catogary' AND
+                l.locationName = '$location' AND
+                e.eventDate < '$eventbefore';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                l.locationName = '$location' AND
+                e.eventDate < '$eventbefore' AND
+                e.eventDate > '$eventafter';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                l.locationName = '$location' AND
+                e.eventCatogary = '$catogary' AND
+                e.eventDate > '$eventafter';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                e.eventDate < '$eventbefore' AND
+                c.catogaryName = '$catogary' AND
+                e.eventDate > '$eventafter';
+
+SELECT * FROM events e ,users u ,location l ,catogary c WHERE
+                e.user_id = u.user_id AND
+                e.locationID = l.locationID AND
+                e.catogaryID = c.catogaryID AND
+                e.isApprove = '1' AND
+                l.locationName = '$location' AND
+                e.eventDate < '$eventbefore' AND
+                c.catogaryName = '$catogary' AND
+                e.eventDate > '$eventafter';
+
+
+
+
+
+
+
+
+
+ 
